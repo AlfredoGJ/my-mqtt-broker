@@ -1,8 +1,4 @@
-var http = require('http'),
-    httpServ = http.createServer(),
-    mosca = require('mosca'),
-    mqttServ = new mosca.Server({});
+const Broker = require('./broker')
 
-mqttServ.attachHttpServer(httpServ);
 
-httpServ.listen(process.env.PORT || 8080);
+Broker.start()

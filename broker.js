@@ -1,9 +1,19 @@
 const aedes = require('aedes')()
-const httpServer = require('http').createServer()
+const http = require('http')
 const ws = require('websocket-stream')
-port = process.env.PORT || 8080
-ws.createServer({ server: httpServer }, aedes.handle)
 
-httpServer.listen(port, function () {
-  console.log('websocket server listening on port ', port)
-})
+function initBroker(){
+    port = process.env.PORT || 8080
+    httpServer = http.createServer()
+    ws.createServer({ server: httpServer }, aedes.handle)
+    
+    return {
+        start:function () {
+            httpServer.listen(port, function () {
+                console.log('websocket server listening on port ', port)
+            })
+        }
+    }
+}
+
+module.exports = initBroker();
