@@ -1,4 +1,7 @@
-const aedes = require('aedes')()
+const aedes = require('aedes')
+aedes.authenticate = (client, username, password, callback) => {
+    console.log(client, username, password, callback)
+}
 const http = require('http')
 const ws = require('websocket-stream')
 
