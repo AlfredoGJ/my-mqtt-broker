@@ -1,5 +1,5 @@
 const aedes = require('aedes')
-aedes.authenticate = (client, username, password, callback) => {
+aedes.authenticate = function (client, username, password, callback) {
     console.log(client, username, password, callback)
     callback(null, username === 'Alfredo');
 }
