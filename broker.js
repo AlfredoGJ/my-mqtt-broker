@@ -1,7 +1,8 @@
 const aedes = require('aedes')()
 aedes.authenticate = function (client, username, password, callback) {
     console.log(client, username, password, callback)
-    callback(null, username === 'Alfredo');
+    const authorize = username === 'Alfredo' && password.toString() ==='1234'
+    callback(null,authorize);
 }
 const http = require('http')
 const ws = require('websocket-stream')
